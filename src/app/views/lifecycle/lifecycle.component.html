@@ -1,0 +1,10 @@
+<div class="pc mt-4">
+  <app-lifecycle-child [msg]="123" *ngIf="showComponent"></app-lifecycle-child>
+  <button class="btn btn-primary" (click)="toggle()">
+    toggle component
+  </button>
+  <p class="mt-2">打开控制台查看生命周期信息</p>
+  <p>
+    <a href="https://angular.cn/guide/lifecycle-hooks" target="_blank" rel="noopener noreferrer">点击查看官方文档</a>
+  </p>
+</div>

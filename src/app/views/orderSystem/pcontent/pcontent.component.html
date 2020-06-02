@@ -1,0 +1,29 @@
+<!--
+ * @Author: YZY
+ * @Date: 2020-05-21 09:06:01
+ * @LastEditTime: 2020-05-21 16:42:53
+ * @FilePath: /angulardemo/src/app/views/orderSystem/pcontent/pcontent.component.html
+ * @Description: 
+--> 
+<div class="mobile order">
+  <div class="header">
+    <span class="header-icon" (click)="goBack()">
+      <svg t="1590048159017" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2274" width="16" height="16"><path d="M834.922523 15.057695C810.374779-5.019232 770.601216-5.019232 746.115618 15.057695L188.539996 472.985719C175.42715 483.741215 169.833991 497.928226 170.766186 512.012803 169.833991 526.046164 175.42715 540.284392 188.539996 550.98867L746.115618 1009.019133C770.601216 1028.993621 810.374779 1028.993621 834.922523 1009.019133 859.470271 989.04464 859.470271 956.265987 834.922523 935.779328L318.549825 512.012803 834.922523 87.93898C859.470271 67.862054 859.470271 35.237052 834.922523 15.057695L834.922523 15.057695Z" p-id="2275"></path></svg>
+    </span>
+    <span class="header-title">
+      商品详情
+    </span>
+  </div>
+  <div class="order-content">
+    <div class="card mb-4">
+      <img src="../../../../assets/placeholders.png" class="card-img-top" alt="..." width="100%">
+      <div class="card-body">
+        <p>{{ info.title }}</p>
+        <p class="text-info mb-0">￥ {{ info.price }}</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body" [innerHtml]="info.des | htmlHandle"></div>
+    </div>
+  </div>
+</div>

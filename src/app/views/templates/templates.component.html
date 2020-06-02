@@ -1,0 +1,190 @@
+<div class="pc">
+
+	<div class="border p-3 mb-2">
+		<h3>创建angular组件</h3>
+		<hr />
+		<div class="row">
+			<div class="col">
+				<app-header></app-header>
+			</div>
+			<div class="col">
+				<div class="mb-1">
+					<div class="mb-1">在控制台输入以下命令创建一个组件</div>
+					<pre class='hljs'><code>ng g component components/<span>header</span></code></pre>
+				</div>
+				<div class="mb-1">
+					<div class="mb-1">使用组件</div>
+					<pre class='hljs'><code><span class="hljs-tag">&lt;app-header&gt;</span><span class="hljs-tag">&lt;/app-header&gt;</span></code></pre>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="border p-3 mb-2">
+		<h3>绑定数据</h3>
+		<hr/>
+		<ol>
+			<li>
+				<h5>数据文本绑定</h5>
+				<div class="row">
+					<div class="col">
+						<p>{{ title }}</p>
+					</div>
+					<div class="col">
+						<app-code type="textBind"></app-code>
+					</div>
+				</div>
+			</li>
+			<li>
+				<h5>绑定html</h5>
+				<div class="row">
+					<div class="col">
+						<p [innerHtml]="html"></p>
+					</div>
+					<div class="col">
+						<app-code type="htmlBind"></app-code>
+					</div>
+				</div>
+			</li>
+		</ol>
+	</div>
+
+	<div class="border p-3 mb-2">
+		<h3>绑定属性</h3>
+		<hr>
+		<div class="row">
+			<div class="col">
+				<img src="" [alt]="imgAlt" width="30" height="30">
+			</div>
+			<div class="col">
+				<app-code type="attrBind"></app-code>
+			</div>
+		</div>
+	</div>
+
+	<div class="border p-3 mb-2">
+		<h3>数据循环</h3>
+		<hr>
+		<ol>
+			<li>
+				<h5>普通循环</h5>
+				<div class="row">
+					<div class="col">
+						<p *ngFor="let item of [1,2,3]">{{ item }}</p>
+					</div>
+					<div class="col">
+						<app-code type="normalFor"></app-code>
+					</div>
+				</div>	
+			</li>
+			<li>
+				<h5>循环的时候设置 key</h5>
+				<div class="row">
+					<div class="col">
+						<p *ngFor="let item of [1, 2, 3];let i = index;">{{ item }} ==== {{ i }}</p>
+					</div>
+					<div class="col">
+						<app-code type="forByKey"></app-code>
+					</div>
+				</div>
+			</li>
+			<!-- <li>
+				<h5>template 循环数据</h5>
+				<div class="row">
+					<ul class="col">
+						<p>{{list}}</p>
+						<li template="ngFor let item of list;let i = index">{{ item }} ===== {{ i }}</li>
+					</ul>
+				</div>
+			</li> -->
+		</ol>
+	</div>
+
+	<div class="border p-3 mb-2">
+		<h3>条件判断</h3>
+		<hr>
+		<div class="row">
+			<div class="col">
+				<p *ngIf="3 > 2">*ngIf 3 > 2</p>
+				<p template="ngIf 3 > 2">template 3 > 2</p>
+			</div>
+			<div class="col">
+				<app-code type="if"></app-code>
+			</div>
+		</div>
+	</div>
+
+	<div class="border p-3 mb-2">
+		<h3>ngSwitch</h3>
+		<hr>
+		<div class="row">
+			<div class="col">
+				<div [ngSwitch]="switchvalue">
+					<span *ngSwitchCase="0">0----{{ switchvalue }}</span>
+					<span *ngSwitchCase="1">1----{{ switchvalue }}</span>
+					<span *ngSwitchCase="2">2----{{ switchvalue }}</span>
+					<span *ngSwitchDefault>无效</span>
+				</div>
+			</div>
+			<div class="col">
+				<app-code type="switch"></app-code>
+			</div>
+		</div>
+	</div>
+
+	<div class="border p-3 mb-2">
+		<h3>执行事件</h3>
+		<hr>
+		<div class="row">
+			<div class="col">
+				<button (click)="clickBtn()">点击触发事件</button>
+			</div>
+			<div class="col">
+				<app-code type="performEvent"></app-code>
+			</div>
+		</div>
+	</div>
+
+	<div class="border p-3 mb-2">
+		<h3>表单事件</h3>
+		<hr>
+		<div class="row">
+			<div class="col">
+				<input type="text" (keyup)="keyUpFn($event)">
+			</div>
+			<div class="col">
+				<app-code type="formEvent"></app-code>
+			</div>
+		</div>
+	</div>
+
+	<div class="border p-3 mb-2">
+		<h3>双向绑定</h3>
+		<hr>
+		<div class="row">
+			<div class="col">
+				<input type="text" [(ngModel)]="inputModel">
+				<p>{{ inputModel }}</p>
+			</div>
+			<div class="col">
+				<app-code type="model"></app-code>
+			</div>
+		</div>
+	</div>
+
+	<div class="border p-3 mb-2">
+		<h3>ngClass ngStyle</h3>
+		<hr>
+		<div class="row">
+			<div class="col">
+				<p [ngClass]="{'red': true, 'green': false}">ngClass</p>
+				<p [ngClass]="{'red': fasle}">ngClass</p>
+				<p [ngStyle]="{'background-color':'green'}">ngStyle</p>
+			</div>
+			<div class="col">
+				<app-code type="class"></app-code>
+			</div>
+		</div>
+	</div>
+
+</div>

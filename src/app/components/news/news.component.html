@@ -1,0 +1,13 @@
+<!--
+ * @Author: YZY
+ * @Date: 2020-04-28 17:49:00
+ * @LastEditTime: 2020-05-13 10:29:56
+ * @FilePath: /angulardemo/src/app/components/news/news.component.html
+ * @Description: 
+ -->
+<div>
+	<p>This is a child component</p>
+	<p class="ml-2">msg form father component: {{msg}}</p>
+	<input type="text" [(ngModel)]="content">
+	<button class="btn btn-primary btn-sm ml-4" (click)="runFatherFn()">Trigger the parent component method</button>
+</div>

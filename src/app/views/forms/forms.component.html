@@ -1,0 +1,54 @@
+<div class="mobile border rounded-lg">
+	<h3 class="text-center mb-4">人员登记系统</h3>
+	<div class="form-group row">
+		<label class="col-3">姓名：</label>
+		<div class="col-9">
+      <input class="form-control" type="text" name="" [(ngModel)]="people.userName">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label class="col-3">性别</label>
+    <div class="d-flex col-9">
+      <div>
+        <input type="radio" name="sex" [(ngModel)]="people.sex" value="boy">
+        <span class="ml-2">男</span>
+      </div>
+      <div class="ml-4">
+        <input type="radio" name="sex" [(ngModel)]="people.sex" value="gril">
+        <span class="ml-2">女</span>
+      </div>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label class="col-3">居住城市:</label>
+    <div class="col-9">
+      <select class="form-control" name="city" id="" [(ngModel)]="people.city">
+      <option *ngFor="let item of cityOptions;let key = index" [ngValue]="item.value">{{ item.name }}</option>
+    </select>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label class="col-3">爱好</label>
+    <div class="d-flex col-9">
+      <div>
+        <input type="checkbox" name="hobby" value="read" [(ngModel)]="hobby['read']">
+        <span class="ml-2">看书</span>
+      </div>
+      <div class="ml-4">
+        <input type="checkbox" name="drawing" value="drawing" [(ngModel)]="hobby['drawing']">
+        <span class="ml-2">画画</span>
+      </div>
+      <div class="ml-4">
+        <input type="checkbox" name="sport" value="sport" [(ngModel)]="hobby['sport']">
+        <span class="ml-2">运动</span>
+      </div>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label class="col-3">特殊备注</label>
+    <div class="col-9">
+      <textarea class="form-control" name="mark" id="" cols="30" rows="10" [(ngModel)]="people.mark"></textarea>
+    </div>
+  </div>
+  <button type="button" class="btn btn-primary btn-block" (click)="getForms()">确定</button>
+</div>

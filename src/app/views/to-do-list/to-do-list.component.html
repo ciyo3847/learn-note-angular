@@ -1,0 +1,50 @@
+<!--
+ * @Author: YZY
+ * @Date: 2020-05-09 11:20:26
+ * @LastEditTime: 2020-05-18 16:09:18
+ * @FilePath: /angulardemo/src/app/views/to-do-list/to-do-list.component.html
+ * @Description: 
+ -->
+<div class="mobile to-do-list border p-4">
+  <h3 class="text-center mb-2">to do list</h3>
+  <div class="mb-4">
+    <input
+      class="form-control"
+      type="text"
+      name="list"
+      placeholder="enter to do list"
+      [(ngModel)]="listInput"
+      (keyup)="addList($event)" >
+  </div>
+  <div>
+    <h5>未完成</h5>
+    <ul>
+      <li *ngFor="let item of toDolist;let i = index">
+        <div *ngIf="item.status === 0" class="d-flex align-items-center">
+          <div class="checkbox">
+            <input class="form-control" type="checkbox" (change)="statusChange(item.id, 1, 0, $event)" >
+          </div>
+          <span>{{ item.title }}</span>
+          <button type="button" class="close ml-auto" aria-label="关闭" (click)="removeList(item.id)">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      </li>
+    </ul>
+    <div *ngIf="countList(0) === 0" class="no-data">no data</div>
+  </div>
+  <div class="complete">
+    <h5>已完成</h5>
+    <ul>
+      <li *ngFor="let item of toDolist;let i = index">
+        <div *ngIf="item.status === 1" class="d-flex align-items-center">
+          <div class="checkbox">
+            <input class="form-control" type="checkbox" (change)="statusChange(item.id, 0, 1, $event)" >
+          </div>
+          <span>{{ item.title }}</span>
+        </div>
+      </li>
+    </ul>
+    <div *ngIf="countList(1) === 0" class="no-data">no data</div>
+  </div>
+</div>

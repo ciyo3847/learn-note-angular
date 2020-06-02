@@ -1,0 +1,397 @@
+<!--
+ * @Author: YZY
+ * @Date: 2020-05-14 11:44:54
+ * @LastEditTime: 2020-05-18 15:55:55
+ * @FilePath: /angulardemo/src/app/components/code/code.component.html
+ * @Description: 
+ -->
+<div [ngSwitch]="type">
+<div *ngSwitchCase="'textBind'">
+<pre class='hljs'><code><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">p</span>&gt;</span></span><span class="hljs-expression">{{ <span class="hljs-variable">title</span> }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-title">p</span>&gt;</span></span></code></pre>
+<pre class='hljs'><code>export <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TemplatesComponent</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">OnInit</span> {{'{'}}</span>
+  <span class="hljs-keyword">public</span> <span class="hljs-string">title:</span> string = <span class="hljs-string">'This is a title'</span>
+{{'}'}}</code></pre>
+</div>
+
+<div *ngSwitchCase="'htmlBind'">
+<pre class='hljs'><code><span class="hljs-keyword">public</span> html: <span class="hljs-built_in">string</span> = <span>'<span class="hljs-xmlDocTag">&lt;h2&gt;</span>This is to use innerHTML parsing h2 tags<span class="hljs-xmlDocTag">&lt;/h2&gt;</span>'</span></code></pre>
+<pre class='hljs'><code><span class="hljs-tag">&lt;<span class="hljs-title">p</span> [<span class="hljs-attribute">innerHtml</span>]=<span class="hljs-value">"html"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">p</span>&gt;</span></code></pre>
+</div>
+
+<div *ngSwitchCase="'attrBind'">
+<pre class='hljs'><code>&lt;<span class="hljs-tag">img</span> src=<span class="hljs-string">""</span> [alt]=<span class="hljs-string">"imgAlt"</span> <span class="hljs-attribute">width</span>=<span class="hljs-string">"30"</span> <span class="hljs-attribute">height</span>=<span class="hljs-string">"30"</span>&gt;</code></pre>
+<pre class='hljs'><code><span class="hljs-keyword">public</span> imgAlt: <span class="hljs-keyword">string</span> = <span class="hljs-string">'This is a image'</span></code></pre>
+</div>
+
+<div *ngSwitchCase="'normalFor'">
+<pre class='hljs'><code><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">p</span> *<span class="hljs-attribute">ngFor</span>=<span class="hljs-value">"let item of [1,2,3]"</span>&gt;</span></span><span class="hljs-expression">{{<span class="hljs-variable"> item </span>}}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-title">p</span>&gt;</span></span></code></pre>
+</div>
+
+<div *ngSwitchCase="'forByKey'">
+<pre class='hljs'><code><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">p</span> *<span class="hljs-attribute">ngFor</span>=<span class="hljs-value">"let item of [1, 2, 3];let i = index;"</span>&gt;</span></span><span class="hljs-expression">{{ <span class="hljs-variable">item</span> }}</span><span class="xml"> ==== </span><span class="hljs-expression">{{ <span class="hljs-variable">i</span> }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-title">p</span>&gt;</span></span></code></pre>
+</div>
+
+<div *ngSwitchCase="'if'">
+  <pre class='hljs'><code><span class="hljs-tag">&lt;<span class="hljs-title">p</span> *<span class="hljs-attribute">ngIf</span>=<span class="hljs-value">"3 &gt; 2"</span>&gt;</span>*ngIf 3 &gt; 2<span class="hljs-tag">&lt;/<span class="hljs-title">p</span>&gt;</span></code></pre>
+<pre class='hljs'><code>&lt;p <span class="hljs-keyword">template</span>=<span class="hljs-string">"ngIf 3 &gt; 2"</span>&gt;<span class="hljs-keyword">template</span> <span class="hljs-number">3</span> &gt; <span class="hljs-number">2</span>&lt;/p&gt;</code></pre>
+</div>
+
+<div *ngSwitchCase="'switch'">
+<pre class='hljs'><code><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">div</span> [<span class="hljs-attribute">ngSwitch</span>]=<span class="hljs-value">"switchvalue"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">span</span> *<span class="hljs-attribute">ngSwitchCase</span>=<span class="hljs-value">"0"</span>&gt;</span>0----</span><span class="hljs-expression">{{ <span class="hljs-variable">switchvalue</span> }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-title">span</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">span</span> *<span class="hljs-attribute">ngSwitchCase</span>=<span class="hljs-value">"1"</span>&gt;</span>1----</span><span class="hljs-expression">{{ <span class="hljs-variable">switchvalue</span> }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-title">span</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">span</span> *<span class="hljs-attribute">ngSwitchCase</span>=<span class="hljs-value">"2"</span>&gt;</span>2----</span><span class="hljs-expression">{{ <span class="hljs-variable">switchvalue</span> }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-title">span</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">span</span> *<span class="hljs-attribute">ngSwitchDefault</span>&gt;</span>无效<span class="hljs-tag">&lt;/<span class="hljs-title">span</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span></span></code></pre>
+<pre class='hljs'><code><span class="hljs-keyword">public</span> <span class="hljs-string">switchvalue:</span> number = <span class="hljs-number">1</span></code></pre>	
+</div>
+
+<div *ngSwitchCase="'performEvent'">
+<pre class='hljs'><code><span class="hljs-tag">&lt;<span class="hljs-title">button</span> (<span class="hljs-attribute">click</span>)=<span class="hljs-value">"clickBtn()"</span>&gt;</span>点击触发事件<span class="hljs-tag">&lt;/<span class="hljs-title">button</span>&gt;</span></code></pre>
+<pre class='hljs'><code><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">clickBtn</span> <span class="hljs-params">()</span>: <span class="hljs-keyword">void</span></span>{{'{'}}
+alert(<span class="hljs-string">'触发事件'</span>)
+{{'}'}}</code></pre>
+</div>
+
+<div *ngSwitchCase="'formEvent'">
+<pre class='hljs'><code>&lt;input <span class="hljs-built_in">type</span>=<span class="hljs-string">"text"</span> (keyup)=<span class="hljs-string">"keyUpFn(<span class="hljs-variable">$event</span>)"</span>&gt;</code></pre>
+<pre class='hljs'><code><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">keyUpFn</span><span class="hljs-params">(e: <span class="hljs-keyword">object</span>)</span>: <span class="hljs-keyword">void</span> </span>{{'{'}}
+  alert(<span class="hljs-string">'keyUp'</span>)
+  console.log(e)
+{{'}'}}</code></pre>
+</div>
+
+<div *ngSwitchCase="'model'">
+<pre class='hljs'><code><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">input</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">"text"</span> [(<span class="hljs-attribute">ngModel</span>)]=<span class="hljs-value">"inputModel"</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">p</span>&gt;</span></span><span class="hljs-expression">{{ <span class="hljs-variable">inputModel</span> }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-title">p</span>&gt;</span></span></code></pre>
+
+注意引入 FormsModule
+
+<pre class='hljs'><code><span class="hljs-title">import</span> {{'{'}} <span class="hljs-title">FormsModule</span> {{'}'}} from <span class="hljs-string">'<span class="hljs-variable">@angular</span>/forms'</span>;</code></pre>
+<pre class='hljs'><code><span class="hljs-variable">@NgModule</span>({{'{'}}
+  <span class="hljs-attribute">declarations</span>: [
+    AppComponent,
+    HeaderComponent,
+    HomeComponent,
+    NewsComponent,
+    TemplatesComponent
+  ],
+  <span class="hljs-attribute">imports</span>: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule
+  ],
+  <span class="hljs-attribute">providers</span>: [],
+  <span class="hljs-attribute">bootstrap</span>: [AppComponent]
+{{'}'}})</code></pre>
+</div>
+
+<div *ngSwitchCase="'class'">
+<pre class='hljs'><code><span class="hljs-tag">&lt;<span class="hljs-title">p</span> [<span class="hljs-attribute">ngClass</span>]=<span class="hljs-value">"{{'{'}}'red': true, 'green': false{{'}'}}"</span>&gt;</span>ngClass<span class="hljs-tag">&lt;/<span class="hljs-title">p</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">p</span> [<span class="hljs-attribute">ngClass</span>]=<span class="hljs-value">"{{'{'}}'red': fasle{{'}'}}"</span>&gt;</span>ngClass<span class="hljs-tag">&lt;/<span class="hljs-title">p</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">p</span> [<span class="hljs-attribute">ngStyle</span>]=<span class="hljs-value">"{{'{'}}'background-color':'green'{{'}'}}"</span>&gt;</span>ngStyle<span class="hljs-tag">&lt;/<span class="hljs-title">p</span>&gt;</span></code></pre>
+</div>
+
+<!-- service -->
+<div *ngSwitchCase="'service1'">
+<pre class='hljs'><code><span class="hljs-title">ng</span> g service services/storage</code></pre>
+<p>storage.service.ts 文件</p>
+<pre class='hljs'><code><span class="hljs-keyword">import</span> {{'{'}} Injectable {{'}'}} from <span class="hljs-string">'@angular/core'</span>;
+
+@Injectable({{'{'}}
+  providedIn: <span class="hljs-string">'root'</span>
+{{'}'}})
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> StorageService {{'{'}}
+
+  <span class="hljs-constructor"><span class="hljs-keyword">constructor</span>() </span>{{'{'}} }
+  <span class="hljs-keyword">get</span> () {{'{'}}
+    <span class="hljs-keyword">return</span> <span class="hljs-string">'this is a storage service'</span>
+  {{'}'}}
+{{'}'}}</code></pre>
+</div>
+<div *ngSwitchCase="'service2'">
+<pre class='hljs'><code><span class="hljs-keyword">import</span> {{'{'}} BrowserModule {{'}'}} <span class="hljs-keyword">from</span> <span class="hljs-string">'@angular/platform-browser'</span>;
+<span class="hljs-keyword">import</span> {{'{'}} NgModule {{'}'}} <span class="hljs-keyword">from</span> <span class="hljs-string">'@angular/core'</span>;
+  
+<span class="hljs-keyword">import</span> {{'{'}} AppComponent {{'}'}} <span class="hljs-keyword">from</span> <span class="hljs-string">'./app.component'</span>;
+  
+<span class="hljs-keyword">import</span> {{'{'}} StorageService {{'}'}} <span class="hljs-keyword">from</span> <span class="hljs-string">'./services/storage.service'</span>
+  
+<span class="hljs-property">@NgModule</span>({{'{'}}
+  <span class="hljs-attribute">declarations</span>: [],
+  <span class="hljs-attribute">imports</span>: [
+    BrowserModule,
+    AppRoutingModule,
+  ],
+  <span class="hljs-attribute">providers</span>: [
+    StorageService,
+  ],
+  <span class="hljs-attribute">bootstrap</span>: [AppComponent]
+{{'}'}})
+<span class="hljs-keyword">export</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AppModule</span> {{'{'}} {{'}'}}</span>
+</code></pre>   
+</div>
+<div *ngSwitchCase="'service3'">
+<pre class='hljs'><code><span class="hljs-keyword">import</span> {{'{'}} Component, OnInit {{'}'}} from <span class="hljs-string">'@angular/core'</span>;
+<span class="hljs-keyword">import</span> {{'{'}} StorageService {{'}'}} from <span class="hljs-string">'../../services/storage.service'</span>
+  
+@Component({{'{'}}
+  selector: <span class="hljs-string">'app-service'</span>,
+  templateUrl: <span class="hljs-string">'./service.component.html'</span>,
+  styleUrls: [<span class="hljs-string">'./service.component.less'</span>]
+{{'}'}})
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> ServiceComponent <span class="hljs-keyword">implements</span> OnInit {{'{'}}
+  
+  <span class="hljs-constructor"><span class="hljs-keyword">constructor</span>(public storage: StorageService) </span>{{'{'}} {{'}'}}
+  <span class="hljs-keyword">public</span> serviceText: <span class="hljs-built_in">string</span>
+  ngOnInit() {{'{'}}
+    <span class="hljs-keyword">this</span>.serviceText = <span class="hljs-keyword">this</span>.storage.get()
+  {{'}'}}
+}</code></pre>
+</div>
+
+<!-- get-dom -->
+<div *ngSwitchCase="'getDom'">
+<p>html文件代码</p>
+<pre class='hljs'><code>&lt;<span class="hljs-tag">p</span> #domNode&gt;this is <span class="hljs-tag">a</span> dom node&lt;/p&gt;</code></pre>
+<p>ts文件代码</p>
+<pre class='hljs'><code><span class="hljs-keyword">import</span> {{'{'}} Component, OnInit, ViewChild {{'}'}} from <span class="hljs-string">'@angular/core'</span>;
+
+@Component({{'{'}}
+  selector: <span class="hljs-string">'app-get-dom'</span>,
+  templateUrl: <span class="hljs-string">'./get-dom.component.html'</span>,
+  styleUrls: [<span class="hljs-string">'./get-dom.component.less'</span>]
+{{'}'}})
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> GetDomComponent <span class="hljs-keyword">implements</span> OnInit {{'{'}}
+  @ViewChild(<span class="hljs-string">'domNode'</span>) domNode: <span class="hljs-built_in">any</span>
+  <span class="hljs-constructor"><span class="hljs-keyword">constructor</span>() </span>{{'{'}} {{'}'}}
+  ngOnInit() {{'{'}} {{'}'}}
+  ngAfterViewInit(): <span class="hljs-built_in">void</span> {{'{'}}
+    <span class="hljs-keyword">this</span>.domNode.nativeElement.style.color = <span class="hljs-string">'red'</span>
+  {{'}'}}
+{{'}'}}</code></pre>
+</div>
+
+<!-- communication -->
+<div *ngSwitchCase="'communicationFtoC'">
+  <div class="row">
+    <div class="col">
+      <p class="mb-2">父组件代码</p>
+      <pre class='hljs'><code>&lt;<span class="hljs-keyword">app</span>-<span class="hljs-keyword">news</span> [msg]=<span class="hljs-string">"msg"</span>&gt;&lt;/<span class="hljs-keyword">app</span>-<span class="hljs-keyword">news</span>&gt;</code></pre>
+    </div>
+    <div class="col">
+      <p class="mb-2">子组件代码</p>
+<pre class='hljs'><code><span class="xml"><span>.html</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">p</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"ml-2"</span>&gt;</span>msg form father component: </span><span class="hljs-expression">{{<span class="hljs-variable">msg</span>}}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-title">p</span>&gt;</span></span>
+
+<span>.ts</span>
+<span class="hljs-keyword">import</span> {{'{'}} Component, OnInit, Input {{'}'}} from <span class="hljs-string">'@angular/core'</span>;
+
+@Component({{'{'}}
+  selector: <span class="hljs-string">'app-news'</span>,
+  templateUrl: <span class="hljs-string">'./news.component.html'</span>,
+  styleUrls: [<span class="hljs-string">'./news.component.less'</span>]
+{{'}'}})
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> NewsComponent <span class="hljs-keyword">implements</span> OnInit {{'{'}}
+  @Input() <span class="hljs-keyword">public</span> msg: <span class="hljs-built_in">string</span>
+  <span class="hljs-constructor"><span class="hljs-keyword">constructor</span>() </span>{{'{'}} }
+  ngOnInit() {{'{'}}
+  {{'}'}}
+{{'}'}}
+  </code></pre>
+    </div>
+  </div>
+</div>
+
+<div *ngSwitchCase="'communicationCemitF'">
+  <div class="row">
+    <div class="col">
+      <p class="mb-2">父组件</p>
+  <pre class='hljs'><code>&lt;<span class="hljs-keyword">app</span>-<span class="hljs-keyword">news</span> (<span class="hljs-keyword">run</span>)=<span class="hljs-string">"run($event)"</span>&gt;&lt;/<span class="hljs-keyword">app</span>-<span class="hljs-keyword">news</span>&gt;</code></pre>
+  <pre class='hljs'><code><span class="hljs-keyword">import</span> {{'{'}} Component, OnInit {{'}'}} from <span class="hljs-string">'@angular/core'</span>;
+
+@Component({{'{'}}
+  selector: <span class="hljs-string">'app-communication'</span>,
+  templateUrl: <span class="hljs-string">'./communication.component.html'</span>,
+  styleUrls: [<span class="hljs-string">'./communication.component.less'</span>]
+{{'}'}})
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> CommunicationComponent <span class="hljs-keyword">implements</span> OnInit {{'{'}}
+  <span class="hljs-constructor"><span class="hljs-keyword">constructor</span>() </span>{{'{'}} {{'}'}}
+  ngOnInit() {{'{'}}
+  {{'}'}}
+  run (p:<span class="hljs-built_in">string</span>): <span class="hljs-built_in">void</span> {{'{'}}
+  alert(<span class="hljs-string">'this is father methods'</span> + <span class="hljs-string">' : '</span> + p)
+  {{'}'}}
+{{'}'}}</code></pre>
+    </div>
+    <div class="col">
+      <p class="mb-2">子组件</p>
+  <pre class='hljs'><code>&lt;<span class="hljs-keyword">button</span> class=<span class="hljs-string">"btn btn-primary btn-sm ml-4"</span> (click)=<span class="hljs-string">"runFatherFn()"</span>&gt;<span class="hljs-type">Trigger</span> the parent component method&lt;/<span class="hljs-keyword">button</span>&gt;</code></pre>
+  <pre class='hljs'><code><span class="hljs-keyword">import</span> {{'{'}} Component, OnInit, Output, EventEmitter {{'}'}} from <span class="hljs-string">'@angular/core'</span>;
+
+@Component({{'{'}}
+  selector: <span class="hljs-string">'app-news'</span>,
+  templateUrl: <span class="hljs-string">'./news.component.html'</span>,
+  styleUrls: [<span class="hljs-string">'./news.component.less'</span>]
+{{'}'}})
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> NewsComponent <span class="hljs-keyword">implements</span> OnInit {{'{'}}
+  @Output() <span class="hljs-keyword">private</span> run = <span class="hljs-keyword">new</span> EventEmitter()
+  <span class="hljs-constructor"><span class="hljs-keyword">constructor</span>() </span>{{'{'}} {{'}'}}
+  ngOnInit() {{'{'}}
+  {{'}'}}
+  runFatherFn ():<span class="hljs-built_in">void</span> {{'{'}}
+  <span class="hljs-keyword">this</span>.run.emit(<span class="hljs-string">'this is child content: '</span> + <span class="hljs-keyword">this</span>.content)
+  {{'}'}}
+{{'}'}}
+  </code></pre>
+    </div>
+  </div>
+</div>
+
+<div *ngSwitchCase="'communicationFgetC'">
+  <div class="row">
+    <div class="col">
+      <p>父组件</p>
+  <pre class='hljs'><code>&lt;<span class="hljs-keyword">app</span>-<span class="hljs-keyword">news</span> #<span class="hljs-keyword">news</span>&gt;&lt;/<span class="hljs-keyword">app</span>-<span class="hljs-keyword">news</span>&gt;
+  <span class="hljs-tag">&lt;<span class="hljs-title">button</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"btn btn-primary btn-sm ml-2"</span> (<span class="hljs-attribute">click</span>)=<span class="hljs-value">"runChildRun()"</span>&gt;</span>Trigger the child component method<span class="hljs-tag">&lt;/<span class="hljs-title">button</span>&gt;</span></code></pre>
+  <pre class='hljs'><code><span class="hljs-keyword">import</span> {{'{'}} Component, OnInit, ViewChild } from <span class="hljs-string">'@angular/core'</span>;
+
+@Component({{'{'}}
+  selector: <span class="hljs-string">'app-communication'</span>,
+  templateUrl: <span class="hljs-string">'./communication.component.html'</span>,
+  styleUrls: [<span class="hljs-string">'./communication.component.less'</span>]
+})
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> CommunicationComponent <span class="hljs-keyword">implements</span> OnInit {{'{'}}
+  @ViewChild(<span class="hljs-string">'news'</span>) news: <span class="hljs-built_in">any</span>
+  <span class="hljs-constructor"><span class="hljs-keyword">constructor</span>() </span>{{'{'}} }
+
+  ngOnInit() {{'{'}}
+  }
+  runChildRun (): <span class="hljs-built_in">void</span> {{'{'}}
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">this</span>.news)
+  <span class="hljs-keyword">this</span>.news.runChild()
+  }
+}</code></pre>
+    </div>
+  </div>
+</div>
+
+<!-- route -->
+<div *ngSwitchCase="'route1'">
+  <pre class='hljs'><code><span class="hljs-keyword">import</span> {{'{'}} HomeComponent } <span class="hljs-keyword">from</span> <span class="hljs-string">'./views/home/home.component'</span>;</code></pre>
+</div>
+
+<div *ngSwitchCase="'route2'">
+<pre class='hljs'><code>const <span class="hljs-string">routes:</span> Routes = [
+  {{'{'}}<span class="hljs-string">path:</span> <span class="hljs-string">'home'</span>, <span class="hljs-string">component:</span> HomeComponent},
+  {{'{'}}<span class="hljs-string">path:</span> <span class="hljs-string">''</span>, <span class="hljs-string">redirectTo:</span> <span class="hljs-string">'/home'</span>, <span class="hljs-string">pathMatch:</span> <span class="hljs-string">'full'</span> } <span class="hljs-comment">// 重定向路由</span>
+];</code></pre>
+</div>
+
+<div *ngSwitchCase="'route3'">
+<pre class='hljs'><code><span class="hljs-tag">&lt;<span class="hljs-title">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">a</span> <span class="hljs-attribute">routerLink</span>=<span class="hljs-value">"/home"</span> <span class="hljs-attribute">routerLinkActive</span>=<span class="hljs-value">"active"</span>&gt;</span>to home<span class="hljs-tag">&lt;/<span class="hljs-title">a</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">router-outlet</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">router-outlet</span>&gt;</span></code></pre>
+</div>
+
+<div *ngSwitchCase="'route4'">
+<pre class='hljs'><code><span class="hljs-tag">&lt;<span class="hljs-title">a</span> <span class="hljs-attribute">routerLink</span>=<span class="hljs-value">"/home"</span> <span class="hljs-attribute">routerLinkActive</span>=<span class="hljs-value">"active"</span>&gt;</span>首页<span class="hljs-tag">&lt;/<span class="hljs-title">a</span>&gt;</span>
+  .active {{'{'}}
+      color: red;
+  }</code></pre>
+</div>
+
+<div *ngSwitchCase="'route5'">
+<pre class='hljs'><code><span class="hljs-rules">{{'{'}}<span class="hljs-rule"><span class="hljs-attribute">path</span>:<span class="hljs-value"> <span class="hljs-string">'home/:id'</span>, component: HomeComponent</span></span></span>},</code></pre>
+</div>
+
+<div *ngSwitchCase="'route6'">
+<pre class='hljs'><code><span class="hljs-tag">&lt;<span class="hljs-title">a</span> [<span class="hljs-attribute">routerLink</span>]=<span class="hljs-value">"[ '/home/',123]"</span>&gt;</span>跳转到详情<span class="hljs-tag">&lt;/<span class="hljs-title">a</span>&gt;</span></code></pre>
+</div>
+
+<div *ngSwitchCase="'route7'">
+<pre class='hljs'><code><span class="hljs-keyword">import</span> {{'{'}} Component, OnInit } from <span class="hljs-string">'@angular/core'</span>;
+<span class="hljs-keyword">import</span> {{'{'}} ActivatedRoute } from <span class="hljs-string">'@angular/router'</span>;
+
+@Component({{'{'}}
+  selector: <span class="hljs-string">'app-home'</span>,
+  templateUrl: <span class="hljs-string">'./home.component.html'</span>,
+  styleUrls: [<span class="hljs-string">'./home.component.less'</span>]
+})
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> HomeComponent <span class="hljs-keyword">implements</span> OnInit {{'{'}}
+  <span class="hljs-keyword">public</span> id:<span class="hljs-built_in">any</span>
+  <span class="hljs-constructor"><span class="hljs-keyword">constructor</span>(public route:ActivatedRoute) </span>{{'{'}} }
+  ngOnInit() {{'{'}}
+    <span class="hljs-keyword">this</span>.route.params.subscribe(data =&gt; {{'{'}}
+      <span class="hljs-keyword">this</span>.id = data.id
+    })
+  }
+}</code></pre>
+</div>
+
+<div *ngSwitchCase="'route8'">
+<pre class='hljs'><code><span class="hljs-keyword">import</span> {{'{'}} Component } from <span class="hljs-string">'@angular/core'</span>;
+<span class="hljs-keyword">import</span> {{'{'}} Router } from <span class="hljs-string">'@angular/router'</span>;
+
+@Component({{'{'}}
+  selector: <span class="hljs-string">'app-root'</span>,
+  templateUrl: <span class="hljs-string">'./app.component.html'</span>,
+  styleUrls: [<span class="hljs-string">'./app.component.less'</span>]
+})
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> AppComponent {{'{'}}
+  title = <span class="hljs-string">'angulardemo'</span>;
+  <span class="hljs-constructor"><span class="hljs-keyword">constructor</span> (public route: Router) </span>{{'{'}} }
+  goHome () {{'{'}}
+    <span class="hljs-keyword">this</span>.route.navigate([<span class="hljs-string">'home'</span>, <span class="hljs-number">1234</span>])
+  }
+}</code></pre>
+</div>
+
+<div *ngSwitchCase="'route9'">
+<pre class='hljs'><code><span class="hljs-keyword">import</span> {{'{'}} Router, NavigationExtras } <span class="hljs-keyword">from</span> <span class="hljs-string">'@angular/router'</span>;</code></pre>
+</div>
+
+<div *ngSwitchCase="'route10'">
+<pre class='hljs'><code>goHome () {{'{'}}
+  <span class="hljs-reserved">let</span> <span class="hljs-attribute">param</span>:NavigationExtras = {{'{'}}
+    <span class="hljs-attribute">queryParams</span>: {{'{'}} <span class="hljs-string">'session_id'</span>: <span class="hljs-string">'123'</span> },
+  }
+  <span class="hljs-keyword">this</span>.route.navigate([<span class="hljs-string">'home'</span>], param)
+}</code></pre>
+</div>
+
+<div *ngSwitchCase="'route11'">
+<pre class='hljs'><code><span class="hljs-keyword">import</span> {{'{'}} Component, OnInit } from <span class="hljs-string">'@angular/core'</span>;
+<span class="hljs-keyword">import</span> {{'{'}} ActivatedRoute } from <span class="hljs-string">'@angular/router'</span>;
+
+@Component({{'{'}}
+  selector: <span class="hljs-string">'app-home'</span>,
+  templateUrl: <span class="hljs-string">'./home.component.html'</span>,
+  styleUrls: [<span class="hljs-string">'./home.component.less'</span>]
+})
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> HomeComponent <span class="hljs-keyword">implements</span> OnInit {{'{'}}
+  <span class="hljs-keyword">public</span> queryParams: <span class="hljs-built_in">Object</span>
+  <span class="hljs-constructor"><span class="hljs-keyword">constructor</span>(public route:ActivatedRoute) </span>{{'{'}} }
+  ngOnInit() {{'{'}}
+    <span class="hljs-keyword">this</span>.route.queryParams.subscribe(data =&gt; {{'{'}}
+      <span class="hljs-keyword">this</span>.queryParams = data
+    })
+  }
+}</code></pre>
+</div>
+
+<div *ngSwitchCase="'route12'">
+<pre class='hljs'><code><span class="hljs-rules">{{'{'}}
+  <span class="hljs-rule"><span class="hljs-attribute">path</span>:<span class="hljs-value"> <span class="hljs-string">'home'</span>,
+  component: HomeComponent,
+  children: [{{'{'}}
+    path: <span class="hljs-string">'forms'</span>,
+    component: FormsComponent,
+  </span></span></span>}, <span class="hljs-rules">{{'{'}}
+    <span class="hljs-rule"><span class="hljs-attribute">path</span>:<span class="hljs-value"> <span class="hljs-string">'to-do-list'</span>,
+    component: ToDoListComponent,
+  </span></span></span>}]
+},</code></pre>
+</div>
+</div>

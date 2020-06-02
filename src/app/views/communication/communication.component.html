@@ -1,0 +1,44 @@
+<!--
+ * @Author: YZY
+ * @Date: 2020-05-12 10:47:04
+ * @LastEditTime: 2020-05-18 16:08:15
+ * @FilePath: /angulardemo/src/app/views/communication/communication.component.html
+ * @Description: 
+ -->
+<!--
+ * @Author: YZY
+ * @Date: 2020-05-12 10:47:04
+ * @LastEditTime: 2020-05-18 10:52:49
+ * @FilePath: /angulardemo/src/app/views/communication/communication.component.html
+ * @Description: 
+ -->
+<div class="pc mt-4 mb-4">
+  <div class="border p-2">
+    <div>
+      <p>This is a father component</p>
+      <input type="text" [(ngModel)]="msg">
+      <button class="btn btn-primary btn-sm ml-2" (click)="runChildRun()">Trigger the child component method</button>
+    </div>
+    <div class="border rounded p-2 mt-2">
+      <app-news #news [msg]="msg" (run)="run($event)"></app-news>
+    </div>
+  </div>
+  <div class="border mt-4 p-3">
+    <h4>
+      1.父组件传值给子组件(通过@input)
+    </h4>
+    <hr>
+    <app-code type="communicationFtoC"></app-code>
+  </div>
+  <div class="border mt-4 p-3">
+    <h4>2. 子组件触发父组件方法(通过@output)</h4>
+    <hr>
+    <app-code type="communicationCemitF"></app-code>
+  </div>
+  <div class="border mt-4 p-3">
+    <h4>3. 父组件通过@ViewChild获取子组件方法和数据</h4>
+    <hr>
+    <app-code type="communicationFgetC"></app-code>
+    
+  </div>
+</div>
