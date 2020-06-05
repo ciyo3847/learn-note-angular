@@ -1,7 +1,7 @@
 /*
  * @Author: YZY
  * @Date: 2020-04-28 15:40:18
- * @LastEditTime: 2020-06-05 10:49:39
+ * @LastEditTime: 2020-06-05 11:09:46
  * @FilePath: /learn-note-angular/src/app/app-routing.module.ts
  * @Description: 
  */
@@ -43,6 +43,7 @@ const routes: Routes = [
 	{path: 'router', component: RouterComponent},
 	{path: 'order/home', component: OrderHomeComponent},
 	{path: 'order/detail/:id', component: PcontentComponent},
+	{path: '**', redirectTo: 'home' }
 ];
 
 @NgModule({
