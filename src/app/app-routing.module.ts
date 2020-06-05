@@ -1,8 +1,8 @@
 /*
  * @Author: YZY
  * @Date: 2020-04-28 15:40:18
- * @LastEditTime: 2020-05-21 15:18:15
- * @FilePath: /angulardemo/src/app/app-routing.module.ts
+ * @LastEditTime: 2020-06-05 10:49:39
+ * @FilePath: /learn-note-angular/src/app/app-routing.module.ts
  * @Description: 
  */
 import { NgModule } from '@angular/core';
@@ -46,7 +46,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { useHash: true})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
